@@ -1,4 +1,6 @@
-# The spec_helper file is the place for loading up any code needed 
+# frozen_string_literal: true
+
+# The spec_helper file is the place for loading up any code needed
 # by all tests (especially the code being targeted by the tests).
 require 'simplecov'
 SimpleCov.start do
@@ -9,11 +11,9 @@ require 'guide'
 require './spec/helpers/extract_helpers'
 
 # Set the application root for easy reference.
-APP_ROOT = File.expand_path('../..', __FILE__)
-
+APP_ROOT = File.expand_path('..', __dir__)
 
 RSpec.configure do |config|
-
   config.include ExtractHelpers
 
   config.expect_with :rspec do |expectations|
@@ -25,8 +25,7 @@ RSpec.configure do |config|
   end
 end
 
-
-def no_output(&block)
+def no_output
   original_stdout = $stdout.dup
   $stdout.reopen('/dev/null')
   $stdout.sync = true
@@ -37,7 +36,7 @@ def no_output(&block)
   end
 end
 
-def capture_output(&block)
+def capture_output
   original_stdout = $stdout.dup
   output_catcher = StringIO.new
   $stdout = output_catcher
@@ -55,8 +54,5 @@ end
 
 # clean up by deleting created files
 def remove_created_file(file_path)
-  if file_path && File.exists?(file_path)
-    File.delete(file_path)
-  end
+  File.delete(file_path) if file_path && File.exist?(file_path)
 end
-
