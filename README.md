@@ -23,3 +23,10 @@ rspec
 ```
 bundle exec mutant --use rspec -I lib/ -r restaurant Restaurant
 ```
+
+### Todo 
+
+1. Define rake tasks to run/tests/mutation etc .... 
+2. Integrate Rubocop to guard against code style violations
+
+ 
