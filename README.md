@@ -24,9 +24,18 @@ rspec
 bundle exec mutant --use rspec -I lib/ -r restaurant Restaurant
 ```
 
+### To check for duplicates you can use JSCPD 
+
+```
+jscpd . --min-tokens 13 --reporters 'json,html,verbose' --blame true --output . --ignore "coverage,jscpd-report.*, *.md"
+```
+
+When we ran for 13 tokens it has zero duplicates report is available in the repository (jscpd-report.html)
+
 ### Todo 
 
 1. Define rake tasks to run/tests/mutation etc .... 
 2. Integrate Rubocop to guard against code style violations
 
- 
+
+
