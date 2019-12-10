@@ -108,8 +108,12 @@ describe RestaurantFile do
     it 'returns an array of restaurant objects' do
       restaurants = valid_file.read
       expect(restaurants.class).to eq(Array)
-      expect(restaurants.length).to eq(6)
       expect(restaurants.first.class).to eq(Restaurant)
+    end
+
+    it 'returns all the restaurants from file' do
+      restaurants = valid_file.read
+      expect(restaurants.length).to eq(6)
     end
     
     it 'returns an empty array if file is not specified' do

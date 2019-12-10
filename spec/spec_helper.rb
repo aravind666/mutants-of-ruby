@@ -6,12 +6,15 @@ SimpleCov.start do
 end
 
 require 'guide'
+require './spec/helpers/extract_helpers'
 
 # Set the application root for easy reference.
 APP_ROOT = File.expand_path('../..', __FILE__)
 
 
 RSpec.configure do |config|
+
+  config.include ExtractHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

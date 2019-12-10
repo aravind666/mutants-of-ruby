@@ -1,7 +1,6 @@
 require 'guide'
 
 describe Guide do
-
   let(:test_file) { 'spec/fixtures/restaurants_test.txt' }
   subject { Guide.new(test_file) }
   
@@ -84,24 +83,12 @@ describe Guide do
       
       it 'sorts alphabetically by default' do
         setup_fake_input('list', 'quit')
-        output = capture_output { subject.launch! }
-        lines = output.split("\n")
-        # Use Regex to extract the names
-        names = lines[12..17].map {|l| l.match(/^\s(.+)\s+.+\s+\$\d+\.\d{2}$/)[1]}
-        # Build array with the first characters
-        first_chars = names.map {|l| l[0] }
-        expect(first_chars).to eq(first_chars.sort)
+        assert_sort_behaviour
       end
       
       it 'sorts alphabetically with an invalid sort by' do
         setup_fake_input('list invalid', 'quit')
-        output = capture_output { subject.launch! }
-        lines = output.split("\n")
-        # Use Regex to extract the names
-        names = lines[12..17].map {|l| l.match(/^\s(.+)\s+.+\s+\$\d+\.\d{2}$/)[1]}
-        # Build array with the first characters
-        first_chars = names.map {|l| l[0] }
-        expect(first_chars).to eq(first_chars.sort)
+        assert_sort_behaviour
       end
 
       it 'sorts by price when asked' do
@@ -141,22 +128,12 @@ describe Guide do
       
       it 'finds restaurants with matching name keyword' do
         setup_fake_input('find cafe', 'quit')
-        output = capture_output { subject.launch! }
-        
-        lines = output.split("\n")
-        expect(lines[11]).to eq("-" * 60)
-        expect(lines[12]).to include('Cafe Masala')
-        expect(lines[13]).to eq("-" * 60)
+        assert_search_behaviour('Cafe Masala')
       end
 
       it 'finds restaurants with matching cuisine keyword' do
         setup_fake_input('find mexican', 'quit')
-        output = capture_output { subject.launch! }
-        
-        lines = output.split("\n")
-        expect(lines[11]).to eq("-" * 60)
-        expect(lines[12]).to include('Hot Tamale')
-        expect(lines[13]).to eq("-" * 60)
+        assert_search_behaviour('Hot Tamale')
       end
       
       it 'finds restaurants with prices less than keyword' do
@@ -205,6 +182,22 @@ describe Guide do
         expect(Restaurant).to have_received(:new).with(:name => 'Chelsea Diner', :cuisine => 'American', :price => '20')
       end
 
+    end
+
+    def assert_sort_behaviour
+      output = capture_output { subject.launch! }
+      lines = output.split("\n")
+      names = extract_name(lines)
+      first_chars = names.map {|l| l[0] }
+      expect(first_chars).to eq(first_chars.sort)
+    end
+
+    def assert_search_behaviour(value)
+      output = capture_output { subject.launch! }
+      lines = output.split("\n")
+      expect(lines[11]).to eq("-" * 60)
+      expect(lines[12]).to include(value)
+      expect(lines[13]).to eq("-" * 60)
     end
     
   end
