@@ -2,10 +2,7 @@
 # in order to add new methods to all strings
 class String
   
-  # Ruby has a capitalize method (used below) which 
-  # capitalizes the first letter of a string. But in 
-  # order to capitalize the first letter of EVERY 
-  # word we have to write our own.
+  # Allows to capitalize the first letter of word
   def titleize
     self.split(' ').collect {|word| word.capitalize}.join(' ')
   end

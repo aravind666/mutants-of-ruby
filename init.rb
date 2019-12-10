@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-#### Food Finder ####
 #
 # Launch this file from the command line to get started.
 #
