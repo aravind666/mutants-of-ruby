@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/aravind666/mutants-of-ruby.svg?branch=master)](https://travis-ci.com/aravind666/mutants-of-ruby)
+
 #  Mutation Analyis in Ruby
 
 
