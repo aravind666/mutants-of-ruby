@@ -11,6 +11,6 @@ group :test do
   gem 'mutant-rspec', require: false
   gem 'rspec', require: false
   gem 'simplecov', require: false
+  gem 'rake', require:false
+  gem 'rubocop', require: false
 end
-
-gem 'rubocop', require: false
