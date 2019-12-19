@@ -11,7 +11,7 @@
 /tmp/
 /jscpd-reports/
 .DS_Store
-
+/report/
 # Used by dotenv library to load environment variables.
 # .env
 
