@@ -4,8 +4,8 @@
 # by all tests (especially the code being targeted by the tests).
 require 'simplecov'
 SimpleCov.start do
-  add_filter '/spec/' # for rspec
-end
+  add_filter '/spec/' # defering coverage for spec files is not required
+end if ENV["COVERAGE"]
 
 require 'guide'
 require './spec/helpers/extract_helpers'

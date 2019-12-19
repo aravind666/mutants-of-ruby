@@ -1,0 +1,8 @@
+{
+  "reporters": ["html", "json", "console"],
+  "output" : "./jscpd-reports/",
+  "min-tokens": 13,
+  "blame": true,
+  "ignore": ["coverage", "config", 
+  	"jscpd-reports.*", ".rspec", ".travis.yml", "Rakefile", "*.md", "*.txt"]
+}
