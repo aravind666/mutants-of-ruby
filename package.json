@@ -1,0 +1,31 @@
+{
+  "name": "mutants-on-ruby",
+  "version": "1.0.0",
+  "description": "A example role model ruby app with all standards in place",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "spec": "spec"
+  },
+  "scripts": {
+    "jscpd": "jscpd ."
+  },
+  "jscpd": {
+    "min-tokens": 5,
+    "reporters": ["html", "console", "json"],
+    "ignore": ["coverage" ,"jscpd-reports","config" ,"*.yml", "*.md"],
+    "absolute": true,
+    "blame": true,
+    "gitignore": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravind666/mutants-of-ruby.git"
+  },
+  "author": "Aravind HU<aravind.udayashankara@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aravind666/mutants-of-ruby/issues"
+  },
+  "homepage": "https://github.com/aravind666/mutants-of-ruby#readme"
+}

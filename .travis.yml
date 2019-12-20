@@ -1,3 +1,5 @@
 language: ruby
+before_script:
+  - npm install -g jscpd
 script:
   - "bundle exec rake travis:run"
