@@ -9,16 +9,23 @@ This application was built on Ruby 2.6.5 version, make sure you have it in your 
 
 It is a simple Restaurant finder application, to experiance the application by running its features
 
-### To run
+This app has Travis CI build pipeline configured with gates (tests, coverage, standards, duplicates).
+
+### To run the application
 ```
 bundle install // to install all the required dependencies 
 
 ruby init.rb // initialize and run the application
 ```
 
-### To run tests 
+### It has rake tasks defined for ensuring clean code 
+
 ```
-rspec 
+rake coverage              # Gather Code coverage 
+rake jscpd                 # Identify Duplicate lines in the code
+rake rubocop               # Run RuboCop for ensuring coding standards
+rake rubocop:auto_correct  # Auto-correct RuboCop offenses
+rake spec                  # Run tests 
 ```
 
 ### To run mutation analysis run
@@ -26,18 +33,17 @@ rspec
 bundle exec mutant --use rspec -I lib/ -r restaurant Restaurant
 ```
 
-### To check for duplicates you can use JSCPD 
-
-```
-jscpd . --min-tokens 13 --reporters 'json,html,verbose' --blame true --output . --ignore "coverage,jscpd-report.*, *.md"
-```
-
-When we ran for 13 tokens it has zero duplicates report is available in the repository (jscpd-report.html)
-
 ### Todo 
 
-1. Define rake tasks to run/tests/mutation etc .... 
-2. Integrate Rubocop to guard against code style violations
+1. Define rake tasks to run mutation 
+
+## Before creating your Pull request 
+
+Make sure you run the below rake task at your local environment to ensure that you are meeting our standards 
+
+```
+rake travis:run            # Executing Defined Gates
+```
 
 
 
