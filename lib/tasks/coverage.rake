@@ -1,5 +1,5 @@
-desc "Create rspec coverage"
+desc 'Create rspec coverage'
 task :coverage do
-	ENV['COVERAGE'] = 'true'
-	Rake::Task["spec"].execute
+  ENV['COVERAGE'] = 'true'
+  Rake::Task['spec'].execute
 end

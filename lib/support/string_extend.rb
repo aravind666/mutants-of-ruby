@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This helper is opening up core Ruby String class
 # in order to add new methods to all strings
 class String

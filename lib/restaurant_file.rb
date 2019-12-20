@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RestaurantFile
   @@delimiter = "\t"
   @@line_map = %i[name cuisine price]

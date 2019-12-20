@@ -1,0 +1,75 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+  TargetRubyVersion: 2.6.5
+
+Metrics/ClassLength:
+  Max: 150
+  Exclude : 
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Max: 100
+  Exclude : 
+    - 'spec/**/*'
+
+RSpec/MultipleExpectations:
+  Max: 25
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude : 
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+
+Style/GuardClause:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/CaseEquality:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 Add the frozen_string_literal comment to the top of files
+                 to help transition to frozen string literals by default.
+  Enabled: true
+  EnforcedStyle: never
+  SupportedStyles:
+    # `always` will always add the frozen string literal comment to a file
+    # regardless of the Ruby version or if `freeze` or `<<` are called on a
+    # string literal. If you run code against multiple versions of Ruby, it is
+    # possible that this will create errors in Ruby 2.3.0+.
+    - always
+    # `never` will enforce that the frozen string literal comment does not
+    # exist in a file.
+    - never

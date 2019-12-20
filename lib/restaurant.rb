@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative('restaurant_file')
 
 class Restaurant
@@ -34,8 +32,9 @@ class Restaurant
   end
 
   def valid?
-    return false if name.nil? || name.blank?
-    return false if cuisine.nil? || cuisine.blank?
+    present = ->(val) { val.nil? || val.blank? }
+    return false if present.call(name)
+    return false if present.call(cuisine)
     return false if price.nil? || price.to_i <= 0
 
     true

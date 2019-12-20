@@ -1,15 +1,14 @@
-# frozen_string_literal: true
-
 # This module exposes a method to convert a number to currency
 # with various options
 module NumberHelper
   def number_to_currency(number, options = {})
-    unit      = options[:unit]      || '$'
-    precision = options[:precision] || 2
-    delimiter = options[:delimiter] || ','
-    separator = options[:separator] || '.'
+    assign_default_options(options)
+    unit      = options[:unit]
+    precision = options[:precision]
+    delimiter = options[:delimiter]
+    separator = options[:separator]
 
-    separator = '' if precision == 0
+    separator = '' if precision.zero?
     integer, decimal = number.to_s.split('.')
 
     i = integer.length
@@ -18,7 +17,7 @@ module NumberHelper
       integer = integer.insert(i, delimiter)
     end
 
-    if precision == 0
+    if precision.zero?
       precise_decimal = ''
     else
       # make sure decimal is not nil
@@ -30,5 +29,12 @@ module NumberHelper
     end
 
     unit + integer + separator + precise_decimal
+  end
+
+  def assign_default_options(options)
+    options[:unit] = options[:unit] || '$'
+    options[:precision] = options[:precision] || 2
+    options[:delimiter] = options[:delimiter] || ','
+    options[:separator] = options[:separator] || '.'
   end
 end

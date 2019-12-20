@@ -1,12 +1,10 @@
-
 namespace :travis do
-
-  desc "Executing Defined Gates"
+  desc 'Executing Defined Gates'
   task :run do
-    ["spec", "jscpd", "coverage"].each do |cmd|
+    %w[spec jscpd coverage].each do |cmd|
       puts "Starting to run #{cmd}..."
       system("bundle exec rake #{cmd}")
-      raise "#{cmd} failed!" unless $?.exitstatus == 0
+      raise "#{cmd} failed!" unless $CHILD_STATUS.exitstatus.zero?
     end
   end
 end

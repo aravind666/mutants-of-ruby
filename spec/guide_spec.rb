@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'guide'
 
 describe Guide do
@@ -92,7 +90,7 @@ describe Guide do
           string = l.match(/^\s.+\s+.+\s+\$(\d+\.\d{2})$/)[1]
           # convert '150.00' to 15000 (avoids using floats)
           d, c = string.split('.')
-          price = (d.to_i * 100) + c.to_i
+          (d.to_i * 100) + c.to_i
         end
         expect(prices).to eq(prices.sort)
       end

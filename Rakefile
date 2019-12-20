@@ -1,5 +1,5 @@
 require 'rake'
 
-Dir.glob('lib/tasks/*.rake').each { |r| load r}
+Dir.glob('lib/tasks/*.rake').each { |r| load r }
 
-task :default => :spec
+task default: :spec

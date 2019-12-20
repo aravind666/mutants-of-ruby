@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
-
 #
 # Launch this file from the command line to get started.
 #

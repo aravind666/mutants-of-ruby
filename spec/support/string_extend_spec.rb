@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 describe 'String' do
   describe '#titleize' do
     it 'capitalizes each word in a string' do
