@@ -29,17 +29,15 @@ rake jscpd                 # Identify Duplicate lines in the code
 rake rubocop               # Run RuboCop for ensuring coding standards
 rake rubocop:auto_correct  # Auto-correct RuboCop offenses
 rake spec                  # Run tests 
+rake mutantation_analysis  # Perform Mutation Analysis On Domain Logic
 ```
 
-### To run mutation analysis run
-```
-bundle exec mutant --use rspec -I lib/ -r restaurant Restaurant
-```
 
-### Todo 
+### TODO 
 
-1. Define rake tasks to run mutation analysis
-2. Gate for mutation analysis
+Curently I am just performing mutation analysis as part of build
+We have to fail the build if mutation coverage is less than 90% 
+
 
 ## Before creating your Pull request 
 
