@@ -3,6 +3,9 @@
 # The spec_helper file is the place for loading up any code needed
 # by all tests (especially the code being targeted by the tests).
 require 'simplecov'
+SimpleCov.minimum_coverage 99
+SimpleCov.minimum_coverage_by_file 98
+SimpleCov.maximum_coverage_drop 0.50
 SimpleCov.start do
   add_filter '/spec/' # defering coverage for spec files is not required
 end if ENV["COVERAGE"]
