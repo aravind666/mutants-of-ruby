@@ -35,7 +35,8 @@ bundle exec mutant --use rspec -I lib/ -r restaurant Restaurant
 
 ### Todo 
 
-1. Define rake tasks to run mutation 
+1. Define rake tasks to run mutation analysis
+2. Gate for mutation analysis
 
 ## Before creating your Pull request 
 
