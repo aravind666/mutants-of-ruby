@@ -1,5 +1,13 @@
 language: ruby
+env:
+  global:
+    - CC_TEST_REPORTER_ID=6a089f5bf2ecef5946ff935f6f46a142b907494301b2cc0bd3e07666b77b5a0a
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - npm install -g jscpd
 script:
   - "bundle exec rake travis:run"
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
