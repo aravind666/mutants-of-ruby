@@ -8,18 +8,38 @@
 
 A simple ruby application built to demonstrate gathering of coverage and mutation analysis reports
 
-This application was built on Ruby 2.6.5 version, make sure you have it in your system before you run. 
+
 
 It is a simple Restaurant finder application, to experiance the application by running its features
 
 This app has Travis CI build pipeline configured with gates (tests, coverage, standards, duplicates).
 
 ### To run the application
+
+This application was built on Ruby 2.6.5 version, make sure you have it in your system before you run.  
+
 ```
 bundle install // to install all the required dependencies 
 
 ruby init.rb // initialize and run the application
 ```
+
+### To run this application with Docker container
+
+```
+docker run -ti -v /path/in/your/system:/usr/src ruby:2.6.5 bash
+```
+
+Once you are in the container, navigate to /usr/src and run 
+
+```
+bundle install // to install all the required dependencies 
+
+ruby init.rb // initialize and run the application 
+
+rake -T // List rake tasks
+```
+
 
 ### It has rake tasks defined for ensuring clean code 
 
@@ -46,6 +66,7 @@ Make sure you run the below rake task at your local environment to ensure that y
 ```
 rake travis:run            # Executing Defined Gates
 ```
+
 
 
 
