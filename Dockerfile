@@ -1,5 +1,9 @@
 FROM ruby:2.5.3
 
+# We need some editor to do some basic activity inside container
+RUN apt-get update
+RUN apt-get -y install vim 
+
 ENV NVM_DIR /usr/local/nvm
 RUN mkdir $NVM_DIR
 RUN chmod a+x $NVM_DIR
